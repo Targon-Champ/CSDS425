@@ -40,8 +40,6 @@ int main(int argc, char* argv[]){
 
     FileHandler file_handler(file_name);
 
-    cout << file_name << endl;
-
     vector<string> ip_addresses= file_handler.getIpAddresses();
 
     if (is_summary){
