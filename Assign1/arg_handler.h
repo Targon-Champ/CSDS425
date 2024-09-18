@@ -25,10 +25,7 @@ class ArgHandler {
     
     public:
 
-    /*
-        ArgHandler Constructor sets the values of isSummary and isList and _fileName properties.
-    
-    */
+
        ArgHandler(vector<string> args){
 
         _is_summary = find(args.begin(),args.end(),"-s") != args.end();
