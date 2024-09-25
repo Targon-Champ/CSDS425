@@ -26,7 +26,7 @@ class listMode : public Mode{
     public:
 
         void validateIP(vector<string> ips) override{
-            for(int i = 0; i < ips.size();i++){
+            for(size_t i = 0; i < ips.size();i++){
                 if(_ip_validator.isValidIP(ips[i])){
                     _validated_ip[ips[i]] = "+";
                 } else {
@@ -37,7 +37,7 @@ class listMode : public Mode{
 
         void getResult(vector<string> ips) override{
 
-            for(int i = 0; i <ips.size();i++){
+            for(size_t i = 0; i <ips.size();i++){
                 cout << ips[i] << " " << _validated_ip[ips[i]] << endl;
             }
             

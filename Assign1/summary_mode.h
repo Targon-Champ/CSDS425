@@ -31,7 +31,7 @@ class summaryMode : public Mode{
         void validateIP(vector<string> ips) override{
 
             
-            for(int i=0; i<ips.size(); i++){
+            for(size_t i=0; i<ips.size(); i++){
                 if(_ip_validator.isValidIP(ips[i])){
                     _valid += 1;
                 } else {

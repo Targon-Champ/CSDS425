@@ -3,7 +3,9 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <algorithm>
 #include "error_handler.h"
+
 
 /*
     Name        : Sri Satya Sai Immani
@@ -28,9 +30,9 @@ class ArgHandler {
 
        ArgHandler(vector<string> args){
 
-        _is_summary = find(args.begin(),args.end(),"-s") != args.end();
-        _is_list = find(args.begin(),args.end(),"-l") != args.end();
-        vector<string>::iterator it = find(args.begin(),args.end(),"-f");
+        _is_summary = find(args.begin(),args.end(),string("-s")) != args.end();
+        _is_list = find(args.begin(),args.end(),string("-l")) != args.end();
+        vector<string>::iterator it = find(args.begin(),args.end(),string("-f"));
 
         if (it != args.end()){
             try{
@@ -39,7 +41,7 @@ class ArgHandler {
 
                 _file_name = *it;
                 }
-            catch (const exception){}
+            catch (const exception&){}
         }
 
  }
@@ -58,7 +60,7 @@ class ArgHandler {
                 _error_handler.noneMode();
             }
             string prevArg = "";
-            for(int i = 0; i < args.size();i++){
+            for(size_t i = 0; i < args.size();i++){
                 if(args[i]!="-s" && args[i]!="-l" && args[i]!="-f"){
                     if(prevArg != "-f"){
                         _error_handler.unknownError(args[i]);
